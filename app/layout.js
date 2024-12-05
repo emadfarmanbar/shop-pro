@@ -1,5 +1,7 @@
+// بدون use client در این فایل
 import localFont from "next/font/local";
 import "./globals.css";
+import ClientProvider from "./ClientProvider"; // کامپوننت کلاینتی
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,11 +21,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html dir="rtl">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ClientProvider>{children}</ClientProvider>
       </body>
     </html>
   );
